@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const { getAllUsers, UserDetails, getParticularUser, storeBookDetails, getUserByBook, getAllBooks, getParticularBook, getBookByUser } = require('./usercontroller/usercontroller')
+const { getAllUsers, UserDetails, getParticularUser, storeBookDetails,  getAllBooks, getParticularBook,storeUserWithMultipleBooks,getAllOrders,getUserWithAllBooks,getBooksWithUser} = require('./controller/user_controller')
 
 const app = express();
 app.use(express.json());
@@ -27,8 +27,12 @@ router.get('/user/:id', getParticularUser);
 router.post('/book', storeBookDetails);
 router.get('/books', getAllBooks);
 router.get('/book/:id', getParticularBook);
-router.get('/get_user_id/:id', getUserByBook);
-router.get('/get_book_id/:id', getBookByUser);
+//router.get('/get_user_id/:id', getUserByBook);
+//router.get('/get_book_id/:id', getBookByUser);
+router.post('/orders',storeUserWithMultipleBooks);
+router.get('/get_all_orders', getAllOrders);
+router.get('/get_user_and_books/:id', getUserWithAllBooks);
+router.get('/get_books_and_user/:id',getBooksWithUser)
 
 
 app.use('/api/v1', router);
