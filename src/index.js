@@ -1,14 +1,12 @@
 /* Created by SathishKumar
 * Created at (30/03/2021)
 */
-
-
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 
-const { getAllUsers, storeUserDetails, getParticularUser, storeBookDetails, getAllBooks, getParticularBook, storeUserWithMultipleBooks, getAllLibraryDetails, toGetUserWithBookCollections } = require('./Controller/UserController')
+const { getAllUsers, storeUserDetails, getParticularUser } = require('./Controller/UserController');
+const { storeBookDetails, getAllBooks, getParticularBook } = require('./Controller/BookController');
+const { storeUserWithMultipleBooks, getAllLibraryDetails, toGetUserWithBookCollections } = require('./Controller/RegisterController');
 
 const app = express();
 app.use(express.json());
@@ -23,10 +21,7 @@ async function connectDB() {
         useCreateIndex: true
     });
 }
-
 connectDB();
-
-
 
 // Routes
 
