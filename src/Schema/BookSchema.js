@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
   // user_id: { type: Schema.Types.ObjectId, ref: 'User' },
-    bookName: String,
-    language: String,
-    authorName: String,
-    bookPrice: Number
+  book_name: String,
+  language: String,
+  author_name: String,
+  book_price: Number
 });
 
 module.exports = mongoose.model('Book', bookSchema);
